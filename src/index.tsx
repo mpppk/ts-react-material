@@ -36,7 +36,7 @@ ReactDOM.render(
 
 if (module.hot) {
     module.hot.accept('./components/App', () => {
-        const NextApp = require('./components/App').default; // tslint:disable-line variable-name
+        const NextApp = (require('./components/App') as any).default; // tslint:disable-line variable-name
         ReactDOM.render(
             <AppContainer>
                 <MuiThemeProvider>
