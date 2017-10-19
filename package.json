@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@types/enzyme": "^2.8.5",
+    "@types/enzyme-adapter-react-16": "^1.0.0",
     "@types/jest": "^21.1.2",
     "@types/material-ui": "^0.18.2",
     "@types/react": "^16.0.9",
@@ -30,6 +31,7 @@
     "@types/webpack-env": "^1.13.1",
     "awesome-typescript-loader": "^3.2.2",
     "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
     "jest": "^21.2.1",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-test-renderer": "^16.0.0",
@@ -45,6 +47,8 @@
     "test": "jest",
     "start": "webpack-dev-server --inline",
     "build-libs": "webpack --config webpack.libs.config.js",
+    "watch-sandbox": "webpack --watch --config webpack.sandbox.config.js",
+    "run-sandbox": "node dist/sandbox.bundle.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts'"
   },
   "keywords": [],
