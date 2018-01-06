@@ -36,7 +36,7 @@
     "react-hot-loader": "^3.1.2",
     "react-test-renderer": "^16.1.1",
     "source-map-loader": "^0.2.3",
-    "ts-jest": "^22.0.0",
+    "ts-jest": "^22.0.1",
     "tslint": "^5.8.0",
     "tslint-react": "^3.2.0",
     "typescript": "^2.6.1",
