@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/enzyme": "^3.1.0",
     "@types/enzyme-adapter-react-16": "^1.0.1",
-    "@types/jest": "^21.1.8",
+    "@types/jest": "^22.0.1",
     "@types/material-ui": "^0.20.1",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
@@ -49,7 +49,8 @@
     "build-libs": "webpack --config webpack.libs.config.js",
     "watch-sandbox": "webpack --watch --config webpack.sandbox.config.js",
     "run-sandbox": "node dist/sandbox.bundle.js",
-    "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts'"
+    "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts'",
+    "test-circleci": "circleci build"
   },
   "keywords": [],
   "author": "mpppk",
