@@ -1,4 +1,4 @@
-(global as any).requestAnimationFrame = (callback) => {
+(global as any).requestAnimationFrame = (callback: any) => {
     setTimeout(callback, 0);
 };
 
@@ -27,7 +27,7 @@ describe('<About />', () => {
 });
 
 describe('<Counter />', () => {
-    it('have two raised button', () => {
+    it('have three raised button', () => {
         const wrapper = shallow(<Counter/>);
         expect(wrapper.find(RaisedButton)).toHaveLength(3);
     });
