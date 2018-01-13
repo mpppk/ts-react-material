@@ -38,7 +38,7 @@ class App extends React.Component<IAppProps, undefined> {
                     <AppBar
                         title='Title'
                         iconClassNameRight='muidocs-icon-navigation-expand-more'
-                        onLeftIconButtonTouchTap={this.handleLeftIconButtonTouchTap}
+                        onLeftIconButtonClick={this.handleLeftIconButtonTouchTap}
                     />
 
                     <Drawer
@@ -47,13 +47,13 @@ class App extends React.Component<IAppProps, undefined> {
                         open={this.props.isOpenDrawer}
                         onRequestChange={this.handleRequestChange}
                     >
-                        <MenuItem onTouchTap={this.handleClose}>
+                        <MenuItem onClick={this.handleClose}>
                             <Link className='menu-list' to='/'>Home</Link>
                         </MenuItem>
-                        <MenuItem onTouchTap={this.handleClose}>
+                        <MenuItem onClick={this.handleClose}>
                             <Link className='menu-list' to='/about'>About</Link>
                         </MenuItem>
-                        <MenuItem onTouchTap={this.handleClose}>
+                        <MenuItem onClick={this.handleClose}>
                             <Link className='menu-list' to='/counter'>Counter</Link>
                         </MenuItem>
                     </Drawer>

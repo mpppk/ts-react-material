@@ -14,7 +14,7 @@ export interface ICounterProps {
     };
 }
 
-export class Counter extends React.Component<ICounterProps, undefined> {
+export class Counter extends React.Component<ICounterProps, {}> {
     constructor(props: ICounterProps) {
         super(props);
         this.asyncIncrementClickEvent = this.asyncIncrementClickEvent.bind(this);
