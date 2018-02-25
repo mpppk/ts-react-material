@@ -41,7 +41,7 @@
     "tslint-react": "^3.3.3",
     "typescript": "^2.6.1",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^3.0.0"
   },
   "scripts": {
     "test": "jest",
