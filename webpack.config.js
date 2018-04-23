@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: [
     "react-hot-loader/patch",
     "./src/index.tsx"
