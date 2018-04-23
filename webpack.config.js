@@ -1,18 +1,14 @@
 const webpack = require('webpack');
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: [
     "react-hot-loader/patch",
     "./src/index.tsx"
     ],
-  output: {
-    filename: "bundle.js",
-    path: __dirname + "/dist",
-  },
 
   // Enable sourcemaps for debugging webpack's output.
-  devtool: "inline-source-map",
+  devtool: "cheap-module-eval-source-map",
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
@@ -45,6 +41,4 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
-
-  // target: "web",
 };
