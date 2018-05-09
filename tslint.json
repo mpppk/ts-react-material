@@ -2,12 +2,13 @@
     "defaultSeverity": "error",
     "extends": [
         "tslint:recommended",
-        "tslint-react"
+        "tslint-react",
+        "tslint-config-prettier"
     ],
     "jsRules": {},
     "rules": {
         "quotemark": [
-            true, "single"
+            true, "single", "jsx-double"
         ],
         "variable-name": [
             true, "allow-leading-underscore"

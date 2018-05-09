@@ -5,6 +5,7 @@
   "main": "dist/main.bundle.js",
   "dependencies": {
     "material-ui": "^0.20.0",
+    "prettier": "^1.12.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.5",
@@ -13,6 +14,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "ts-loader": "^4.3.0",
+    "tslint-config-prettier": "^1.12.0",
     "typescript-fsa": "^3.0.0-beta-1",
     "typescript-fsa-reducers": "^0.4.5",
     "typescript-fsa-redux-saga": "^1.0.3"
@@ -57,7 +59,8 @@
     "watch-sandbox": "webpack --watch --config webpack.sandbox.config.js",
     "run-sandbox": "node dist/sandbox.bundle.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts'",
-    "test-circleci": "circleci build"
+    "test-circleci": "circleci build",
+    "prettier": "prettier --write '@(src|test)/**/*.@(t|j)s?(x)' '*.js'"
   },
   "keywords": [],
   "author": "mpppk",
