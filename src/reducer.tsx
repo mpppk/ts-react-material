@@ -1,6 +1,8 @@
-import {combineReducers} from 'redux';
-import {Action, combineActions, handleActions} from 'redux-actions';
-import {ActionType, ICounterAmountPayload} from './actionCreators';
+import {Action, combineReducers} from 'redux';
+import {isType} from 'typescript-fsa';
+import {
+    appActionCreators, counterActionCreators,
+} from './actionCreators';
 
 export interface IRootState {
     app: IAppState;
@@ -18,23 +20,29 @@ export interface ICounterState {
 const appInitialState: IAppState = { isOpenDrawer: false};
 const counterInitialState: ICounterState = { count: 0 };
 
-export const app = (state = appInitialState, action: Action<undefined>) => {
+export const app = (state = appInitialState, action: Action) => {
     const newState = Object.assign({}, state);
-    switch (action.type) {
-        case ActionType.TOGGLE_DRAWER:
-            newState.isOpenDrawer = !newState.isOpenDrawer;
-            return newState;
-        default:
-            return state;
+    if (isType(action, appActionCreators.toggleDrawer)) {
+        newState.isOpenDrawer = !newState.isOpenDrawer;
+        return newState;
     }
+    return state;
 };
 
-const combinedActions = combineActions(ActionType.INCREMENT, ActionType.DECREMENT);
-export const counter = handleActions({
-    [combinedActions](state: ICounterState, action: Action<ICounterAmountPayload>) {
-        return (typeof action.payload === 'undefined') ? {...state} :
-            { ...state, count: state.count + action.payload.amount };
-    },
-}, counterInitialState);
+export const counter = (state = counterInitialState, action: Action): ICounterState => {
+    if (isType(action, counterActionCreators.clickIncrementButton)) {
+        return {...state, count: state.count + 1};
+    }
+
+    if (isType(action, counterActionCreators.clickDecrementButton)) {
+        return {...state, count: state.count - 1};
+    }
+
+    if (isType(action, counterActionCreators.requestAmountChanging)) {
+        return {...state, count: state.count + action.payload.amount};
+    }
+
+    return state;
+};
 
 export const reducer = combineReducers({app, counter});

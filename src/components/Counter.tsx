@@ -3,15 +3,11 @@ import * as React from 'react';
 import {connect, Dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Action, ActionFunction0, ActionFunctionAny} from 'redux-actions';
-import {appActionCreator} from '../actionCreators';
-import {ICounterState, IRootState} from '../reducer';
+import {counterActionCreators, ICounterActionCreators} from '../actionCreators';
+import {IRootState} from '../reducer';
 export interface ICounterProps {
-    count?: number;
-    actions?: {
-        asyncIncrement(): ActionFunction0<Action<void>>;
-        increment(): ActionFunction0<Action<void>>;
-        decrement(): ActionFunction0<Action<void>>;
-    };
+    count: number;
+    actions: ICounterActionCreators;
 }
 
 export class Counter extends React.Component<ICounterProps, {}> {
@@ -35,19 +31,19 @@ export class Counter extends React.Component<ICounterProps, {}> {
 
     private asyncIncrementClickEvent(e: React.MouseEvent<{}>) {
         if (typeof(this.props.actions) !== 'undefined') {
-            return this.props.actions.asyncIncrement();
+            return this.props.actions.clickAsyncIncrementButton();
         }
     }
 
     private incrementClickEvent(e: React.MouseEvent<{}>) {
         if (typeof(this.props.actions) !== 'undefined') {
-            return this.props.actions.increment();
+            return this.props.actions.clickIncrementButton();
         }
     }
 
     private decrementClickEvent(e: React.MouseEvent<{}>) {
         if (typeof(this.props.actions) !== 'undefined') {
-            return this.props.actions.decrement();
+            return this.props.actions.clickDecrementButton();
         }
     }
 }
@@ -61,7 +57,7 @@ interface IRootActionCreator {
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
-    return { actions: bindActionCreators(appActionCreator, dispatch) };
+    return { actions: bindActionCreators(counterActionCreators as {}, dispatch) };
 }
 
 // tslint:disable-next-line variable-name

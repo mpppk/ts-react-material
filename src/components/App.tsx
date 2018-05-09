@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {Action, ActionFunction0, ActionFunctionAny} from 'redux-actions';
-import {appActionCreator} from '../actionCreators';
+import {appActionCreators} from '../actionCreators';
 import {IAppState, IRootState} from '../reducer';
 import {About} from './About';
 import {ConnectedCounter} from './Counter';
@@ -95,7 +95,7 @@ interface IRootActionCreator {
 
 function mapDispatchToProps
 <TDispatchProps extends {actions: IRootActionCreator}, T>(dispatch: Dispatch<any>) {
-    return { actions: bindActionCreators(appActionCreator, dispatch) };
+    return { actions: bindActionCreators(appActionCreators, dispatch) };
 }
 
 export default
