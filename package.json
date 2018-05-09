@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/main.bundle.js",
   "dependencies": {
+    "husky": "^0.14.3",
     "material-ui": "^0.20.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -61,7 +62,8 @@
     "run-sandbox": "node dist/sandbox.bundle.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts'",
     "test-circleci": "circleci build",
-    "pretty-quick": "pretty-quick"
+    "pretty-quick": "pretty-quick",
+    "precommit": "pretty-quick --staged"
   },
   "keywords": [],
   "author": "mpppk",
