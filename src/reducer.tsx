@@ -1,5 +1,5 @@
-import {Action, combineReducers} from 'redux';
-import {isType} from 'typescript-fsa';
+import {combineReducers} from 'redux';
+import {reducerWithInitialState} from 'typescript-fsa-reducers';
 import {
     appActionCreators, counterActionCreators,
 } from './actionCreators';
@@ -20,29 +20,15 @@ export interface ICounterState {
 const appInitialState: IAppState = { isOpenDrawer: false};
 const counterInitialState: ICounterState = { count: 0 };
 
-export const app = (state = appInitialState, action: Action) => {
-    const newState = Object.assign({}, state);
-    if (isType(action, appActionCreators.toggleDrawer)) {
-        newState.isOpenDrawer = !newState.isOpenDrawer;
-        return newState;
-    }
-    return state;
-};
+const app = reducerWithInitialState(appInitialState)
+    .case(appActionCreators.toggleDrawer, (state) => ({ ...state, isOpenDrawer: !state.isOpenDrawer}));
 
-export const counter = (state = counterInitialState, action: Action): ICounterState => {
-    if (isType(action, counterActionCreators.clickIncrementButton)) {
-        return {...state, count: state.count + 1};
-    }
-
-    if (isType(action, counterActionCreators.clickDecrementButton)) {
-        return {...state, count: state.count - 1};
-    }
-
-    if (isType(action, counterActionCreators.requestAmountChanging)) {
-        return {...state, count: state.count + action.payload.amount};
-    }
-
-    return state;
-};
+const counter = reducerWithInitialState(counterInitialState)
+    .case(counterActionCreators.clickIncrementButton, (state) => ({ ...state, count: state.count + 1}))
+    .case(counterActionCreators.clickDecrementButton, (state) => ({ ...state, count: state.count - 1}))
+    .case(counterActionCreators.requestAmountChanging, (state, payload) => ({
+        ...state,
+        count: state.count + payload.amount,
+    }));
 
 export const reducer = combineReducers({app, counter});
