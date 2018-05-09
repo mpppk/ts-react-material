@@ -9,17 +9,16 @@ import {
     Route,
 } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import {Action, ActionFunction0, ActionFunctionAny} from 'redux-actions';
-import {appActionCreator} from '../actionCreators';
+import {appActionCreators, counterActionCreators, IAppActionCreators} from '../actionCreators';
 import {IAppState, IRootState} from '../reducer';
 import {About} from './About';
 import {ConnectedCounter} from './Counter';
 import {Home} from './Home';
 
 export interface IAppProps {
-    isOpenDrawer?: boolean;
-    actions?: {
-        toggleDrawer(): ActionFunction0<Action<void>>;
+    isOpenDrawer: boolean;
+    actions: {
+        toggleDrawer(): IAppActionCreators;
     };
 }
 
@@ -89,13 +88,8 @@ function mapStateToProps(state: IRootState) {
     return  state.app;
 }
 
-interface IRootActionCreator {
-    [actionName: string]: ActionFunctionAny<Action<undefined>>;
-}
-
-function mapDispatchToProps
-<TDispatchProps extends {actions: IRootActionCreator}, T>(dispatch: Dispatch<any>) {
-    return { actions: bindActionCreators(appActionCreator, dispatch) };
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+    return { actions: bindActionCreators(appActionCreators, dispatch) };
 }
 
 export default
