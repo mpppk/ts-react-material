@@ -2,7 +2,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import * as React from 'react';
 import {connect, Dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Action, ActionFunction0, ActionFunctionAny} from 'redux-actions';
 import {counterActionCreators, ICounterActionCreators} from '../actionCreators';
 import {IRootState} from '../reducer';
 export interface ICounterProps {
@@ -50,10 +49,6 @@ export class Counter extends React.Component<ICounterProps, {}> {
 
 function mapStateToProps(state: IRootState) {
     return  state.counter;
-}
-
-interface IRootActionCreator {
-    [actionName: string]: ActionFunctionAny<Action<undefined>>;
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

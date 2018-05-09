@@ -6,6 +6,10 @@ export interface ICounterAmountPayload {
 
 const counterActionCreatorFactory = actionCreatorFactory('COUNTER');
 
+export interface IAppActionCreators {
+    toggleDrawer: ActionCreator<undefined>;
+}
+
 export const appActionCreators = {
     toggleDrawer: counterActionCreatorFactory('TOGGLE_DRAWER'),
 };
