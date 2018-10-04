@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/main.bundle.js",
   "dependencies": {
-    "husky": "^0.14.3",
+    "husky": "^1.0.0",
     "material-ui": "^0.20.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
