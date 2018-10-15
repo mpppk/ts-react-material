@@ -2,23 +2,26 @@ import RaisedButton from 'material-ui/RaisedButton';
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-  counterActionCreators,
-  ICounterActionCreators
-} from '../actionCreators';
+import { counterActionCreators } from '../actionCreators';
 import { IRootState } from '../reducer';
+
+export type ClickEventHandler = (event: React.MouseEvent<HTMLElement>) => void;
+const emptyClickEventHandler: ClickEventHandler = e => {}; // tslint:disable-line
+
 export interface ICounterProps {
-  count: number;
-  actions: ICounterActionCreators;
+  count?: number;
+  onClickAsyncIncrementButton?: ClickEventHandler;
+  onClickIncrementButton?: ClickEventHandler;
+  onClickDecrementButton?: ClickEventHandler;
 }
 
 export class Counter extends React.Component<ICounterProps, {}> {
-  constructor(props: ICounterProps) {
-    super(props);
-    this.asyncIncrementClickEvent = this.asyncIncrementClickEvent.bind(this);
-    this.incrementClickEvent = this.incrementClickEvent.bind(this);
-    this.decrementClickEvent = this.decrementClickEvent.bind(this);
-  }
+  public static defaultProps: ICounterProps = {
+    count: 0,
+    onClickAsyncIncrementButton: emptyClickEventHandler,
+    onClickDecrementButton: emptyClickEventHandler,
+    onClickIncrementButton: emptyClickEventHandler
+  };
 
   public render() {
     return (
@@ -26,30 +29,18 @@ export class Counter extends React.Component<ICounterProps, {}> {
         <h1>Count: {this.props.count}</h1>
         <RaisedButton
           label="Async Increment"
-          onClick={this.asyncIncrementClickEvent}
+          onClick={this.props.onClickAsyncIncrementButton}
         />
-        <RaisedButton label="Increment" onClick={this.incrementClickEvent} />
-        <RaisedButton label="Decrement" onClick={this.decrementClickEvent} />
+        <RaisedButton
+          label="Increment"
+          onClick={this.props.onClickIncrementButton}
+        />
+        <RaisedButton
+          label="Decrement"
+          onClick={this.props.onClickDecrementButton}
+        />
       </div>
     );
-  }
-
-  private asyncIncrementClickEvent(e: React.MouseEvent<{}>) {
-    if (typeof this.props.actions !== 'undefined') {
-      return this.props.actions.clickAsyncIncrementButton();
-    }
-  }
-
-  private incrementClickEvent(e: React.MouseEvent<{}>) {
-    if (typeof this.props.actions !== 'undefined') {
-      return this.props.actions.clickIncrementButton();
-    }
-  }
-
-  private decrementClickEvent(e: React.MouseEvent<{}>) {
-    if (typeof this.props.actions !== 'undefined') {
-      return this.props.actions.clickDecrementButton();
-    }
   }
 }
 
@@ -57,7 +48,7 @@ function mapStateToProps(state: IRootState) {
   return state.counter;
 }
 
-function mapDispatchToProps(dispatch: Dispatch<any>) {
+function mapDispatchToProps(dispatch: Dispatch<void>) {
   return { actions: bindActionCreators(counterActionCreators as {}, dispatch) };
 }
 
