@@ -7,7 +7,7 @@ import * as Adapter from 'enzyme-adapter-react-16';
 import RaisedButton from 'material-ui/RaisedButton';
 import * as React from 'react';
 import { About } from '../src/components/About';
-import { Counter } from '../src/components/Counter';
+import { ClickEventHandler, Counter } from '../src/components/Counter';
 import { Home } from '../src/components/Home';
 
 configure({ adapter: new Adapter() });
