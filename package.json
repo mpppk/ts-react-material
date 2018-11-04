@@ -4,67 +4,68 @@
   "description": "",
   "main": "dist/main.bundle.js",
   "dependencies": {
+    "husky": "^1.0.0",
     "material-ui": "^0.20.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "react-tap-event-plugin": "^3.0.2",
     "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "ts-loader": "^4.3.0",
+    "tslint-config-prettier": "^1.12.0",
+    "typescript-fsa": "^3.0.0-beta-1",
+    "typescript-fsa-reducers": "^0.4.5",
+    "typescript-fsa-redux-saga": "^1.0.3"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.0",
     "@types/enzyme-adapter-react-16": "^1.0.1",
-    "@types/jest": "^22.0.1",
-    "@types/material-ui": "^0.20.1",
-    "@types/react": "^16.0.34",
+    "@types/jest": "^23.3.9",
+    "@types/material-ui": "^0.21.0",
+    "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.3",
     "@types/react-hot-loader": "^3.0.5",
     "@types/react-redux": "^5.0.14",
     "@types/react-router-dom": "^4.2.1",
     "@types/react-tap-event-plugin": "0.0.30",
     "@types/redux": "^3.6.31",
-    "@types/redux-actions": "^2.2.2",
     "@types/redux-saga": "^0.10.5",
     "@types/webpack-env": "^1.13.3",
-    "awesome-typescript-loader": "^3.3.0",
+    "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^22.0.0",
+    "jest": "^23.6.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "prettier": "^1.12.1",
+    "pretty-quick": "^1.4.1",
     "react-hot-loader": "^4.0.0",
-    "react-test-renderer": "^16.1.1",
+    "react-test-renderer": "^16.6.0",
     "source-map-loader": "^0.2.3",
-    "ts-jest": "^22.0.1",
+    "style-loader": "^0.19.1",
+    "ts-jest": "^23.10.4",
     "tslint": "^5.8.0",
     "tslint-react": "^3.3.3",
     "typescript": "^2.6.1",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^3.0.0"
+    "uglifyjs-webpack-plugin": "^2.0.0",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.0.0",
+    "webpack-dev-server": "^3.1.10"
   },
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --inline",
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
     "build-libs": "webpack --config webpack.libs.config.js",
     "watch-sandbox": "webpack --watch --config webpack.sandbox.config.js",
     "run-sandbox": "node dist/sandbox.bundle.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts'",
-    "test-circleci": "circleci build"
+    "test-circleci": "circleci build",
+    "pretty-quick": "pretty-quick",
+    "precommit": "pretty-quick --staged"
   },
   "keywords": [],
   "author": "mpppk",
-  "license": "MIT",
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ]
-  }
+  "license": "MIT"
 }

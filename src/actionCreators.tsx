@@ -1,21 +1,45 @@
-import {ActionMap, createActions} from 'redux-actions';
-
-export enum ActionType {
-    ASYNC_INCREMENT = 'ASYNC_INCREMENT',
-    INCREMENT       = 'INCREMENT',
-    DECREMENT       = 'DECREMENT',
-    TOGGLE_DRAWER   = 'TOGGLE_DRAWER',
-}
+import actionCreatorFactory, { ActionCreator } from 'typescript-fsa';
 
 export interface ICounterAmountPayload {
-    amount: number;
+  amount: number;
 }
 
-const actions: ActionMap<ICounterAmountPayload | undefined, undefined> = {
-    [ActionType.ASYNC_INCREMENT]: undefined,
-    [ActionType.INCREMENT]      : (amount: number) => ({ amount: 1 }),
-    [ActionType.DECREMENT]      : (amount: number) => ({ amount: -1 }),
-    [ActionType.TOGGLE_DRAWER]  : undefined,
+const counterActionCreatorFactory = actionCreatorFactory('COUNTER');
+
+export interface IAppActionCreators {
+  toggleDrawer: ActionCreator<undefined>;
+}
+
+export const appActionCreators = {
+  toggleDrawer: counterActionCreatorFactory('TOGGLE_DRAWER')
 };
 
-export const appActionCreator = createActions(actions);
+export interface ICounterActionCreators {
+  clickAsyncIncrementButton: ActionCreator<undefined>;
+  clickDecrementButton: ActionCreator<undefined>;
+  clickIncrementButton: ActionCreator<undefined>;
+  requestAmountChanging: ActionCreator<ICounterAmountPayload>;
+}
+
+export const counterActionCreators: ICounterActionCreators = {
+  clickAsyncIncrementButton: counterActionCreatorFactory<undefined>(
+    'CLICK_ASYNC_INCREMENT_BUTTON'
+  ),
+  clickDecrementButton: counterActionCreatorFactory<undefined>(
+    'CLICK_DECREMENT_BUTTON'
+  ),
+  clickIncrementButton: counterActionCreatorFactory<undefined>(
+    'CLICK_INCREMENT_BUTTON'
+  ),
+  requestAmountChanging: counterActionCreatorFactory<ICounterAmountPayload>(
+    'REQUEST_AMOUNT_CHANGING'
+  )
+};
+
+export const counterAsyncActionCreators = {
+  changeAmountAsync: counterActionCreatorFactory.async<
+    ICounterAmountPayload,
+    any,
+    any
+  >('CHANGE_AMOUNT_ASYNC')
+};
