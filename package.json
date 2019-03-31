@@ -33,7 +33,7 @@
     "@types/redux": "3.6.31",
     "@types/redux-saga": "0.10.5",
     "@types/webpack-env": "1.13.9",
-    "css-loader": "2.0.0",
+    "css-loader": "2.1.1",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.11.2",
     "jest": "23.6.0",
