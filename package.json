@@ -27,7 +27,7 @@
     "@types/react": "16.8.10",
     "@types/react-dom": "16.0.11",
     "@types/react-hot-loader": "3.0.6",
-    "@types/react-redux": "5.0.16",
+    "@types/react-redux": "5.0.21",
     "@types/react-router-dom": "4.2.6",
     "@types/react-tap-event-plugin": "0.0.30",
     "@types/redux": "3.6.31",
