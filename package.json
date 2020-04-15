@@ -41,7 +41,7 @@
     "prettier": "1.19.1",
     "pretty-quick": "1.11.1",
     "react-hot-loader": "4.3.12",
-    "react-test-renderer": "16.13.0",
+    "react-test-renderer": "16.13.1",
     "source-map-loader": "0.2.4",
     "style-loader": "0.23.1",
     "ts-jest": "23.10.5",
