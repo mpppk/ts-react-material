@@ -39,7 +39,7 @@
     "jest": "23.6.0",
     "mini-css-extract-plugin": "0.10.0",
     "prettier": "1.19.1",
-    "pretty-quick": "1.11.1",
+    "pretty-quick": "2.0.2",
     "react-hot-loader": "4.3.12",
     "react-test-renderer": "16.13.1",
     "source-map-loader": "0.2.4",
