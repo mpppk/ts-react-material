@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@types/enzyme": "3.10.18",
-    "@types/enzyme-adapter-react-16": "1.0.6",
+    "@types/enzyme-adapter-react-16": "1.0.9",
     "@types/jest": "23.3.14",
     "@types/material-ui": "0.21.18",
     "@types/react": "16.14.20",
@@ -35,7 +35,7 @@
     "@types/webpack-env": "1.16.3",
     "css-loader": "5.2.7",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.6",
+    "enzyme-adapter-react-16": "1.15.8",
     "jest": "23.6.0",
     "mini-css-extract-plugin": "1.6.2",
     "prettier": "1.19.1",
