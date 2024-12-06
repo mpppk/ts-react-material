@@ -29,7 +29,7 @@
     "@types/react-hot-loader": "3.0.6",
     "@types/react-redux": "5.0.28",
     "@types/react-router-dom": "4.3.5",
-    "@types/react-tap-event-plugin": "0.0.31",
+    "@types/react-tap-event-plugin": "0.0.33",
     "@types/redux": "3.6.31",
     "@types/redux-saga": "0.10.5",
     "@types/webpack-env": "1.16.3",
